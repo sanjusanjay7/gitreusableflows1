@@ -4,8 +4,8 @@ on:
 
 jobs:
   Plan_Dev:
-    if: github.ref == 'refs/heads/FeatureBranch1'
-    uses: sanjusanjay7/gitreusableflows/.github/workflows/aws_tf_plan.yml@FeatureBranch1
+    if: github.ref == 'refs/heads/main'
+    uses: sanjusanjay7/gitreusableflows1/.github/workflows/aws_tf_plan.yml@main
     with:
       path: S3Bucket
       tf_vars_file: dev.tfvars
@@ -15,7 +15,7 @@ jobs:
 
   Deploy_Dev:
     needs: Plan_Dev
-    uses: sanjusanjay7/gitreusableflows1/.github/workflows/aws_tf_appy.yml@FeatureBranch1
+    uses: sanjusanjay7/gitreusableflows1/.github/workflows/aws_tf_appy.yml@main
     with:
       path: S3Bucket
       tf_vars_file: dev.tfvars
